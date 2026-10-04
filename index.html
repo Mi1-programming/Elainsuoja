@@ -1,0 +1,53 @@
+<!-- @format -->
+
+<!doctype html>
+<html>
+	<head>
+		<title>Adoptoitavat Eläimet</title>
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="page">
+			<a class="back">Kissat</a>
+			<h1>Kissat</h1>
+			<main id="cards"></main>
+		</div>
+		<template id="card">
+			<div class="card">
+				<img src="resources/no_image.png" class="thumbnail" />
+				<div class="info">
+					<p class="breed">Rotu</p>
+					<p class="shelter_date">Päivä</p>
+				</div>
+				<h2 class="title">Eläin</h2>
+				<div class="line"></div>
+				<p class="description"></p>
+			</div>
+		</template>
+		<script>
+			const cards = document.querySelector("#cards");
+			const template = document.querySelector("#card");
+
+			async function PopulateAnimals() {
+				const data = await fetch("resources/data/animals.json");
+				const json = await data.json();
+
+				json.animals.forEach((animal) => {
+					const clone = document.importNode(template.content, true);
+					let title = clone.querySelector(".title");
+					title.textContent = animal.name;
+					let description = clone.querySelector(".description");
+					description.textContent = animal.description;
+					let breed = clone.querySelector(".breed");
+					breed.textContent = animal.breed;
+					let shelterDate = clone.querySelector(".shelter_date");
+					shelterDate.textContent = animal.shelter_date;
+
+					cards.appendChild(clone);
+				});
+			}
+
+			PopulateAnimals();
+		</script>
+	</body>
+</html>

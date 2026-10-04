@@ -1,0 +1,46 @@
+{
+    "animals": [
+        {
+            "name": "Killi",
+            "description": "Kiva ja hellyyden haluinen kissa, mutta näykkii kuin piraija.",
+            "type": "Kissa",
+            "breed": "Sekarotu",
+            "shelter_date": "5.7.2011"
+        },
+        {
+            "name": "Luna",
+            "description": "Rauhallinen ja lempeä kissa, joka rakastaa nukkua auringonpaisteessa.",
+            "type": "Kissa",
+            "breed": "Maine Coon",
+            "shelter_date": "12.3.2018"
+        },
+        {
+            "name": "Musti",
+            "description": "Energinen musta kissa, joka jahtaa varjoja ympäri asuntoa yöaikaan.",
+            "type": "Kissa",
+            "breed": "Sekarotu",
+            "shelter_date": "20.11.2020"
+        },
+        {
+            "name": "Simba",
+            "description": "Ylpeä ja äänekäs kaveri, joka luulee olevansa oikea leijona.",
+            "type": "Kissa",
+            "breed": "Abessinialainen",
+            "shelter_date": "5.1.2015"
+        },
+        {
+            "name": "Misu",
+            "description": "Hieman ujo aluksi, mutta sulaa herkkujen myötä erittäin nopeasti.",
+            "type": "Kissa",
+            "breed": "Siamilainen",
+            "shelter_date": "15.8.2022"
+        },
+        {
+            "name": "Nöpö",
+            "description": "Utelias pieni kissa, joka tykkää tutkia kaappien sisällöstä.",
+            "type": "Kissa",
+            "breed": "Britannian lyhytkarvainen",
+            "shelter_date": "2.10.2019"
+        }
+    ]
+}
