@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <title>Kissa</title>
+  <title><%= category %> - <%= name %></title>
   <link href="/static/resources/main.css" rel="stylesheet" />
   <link href="/static/resources/animal.css" rel="stylesheet" />
 </head>
@@ -16,9 +16,8 @@
 
     <img src="/static/resources/images/animals/<%= name %>.jpg" onerror="this.onerror=null; this.src='/static/resources/images/no_image.png';" class="thumbnail"/>
     <h2><%= name %></h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur officiis cupiditate illo ab debitis maxime neque voluptatibus, odit nemo eveniet?
-      Molestias consectetur inventore eum enim nesciunt porro rerum repellendus delectus!
-    </p>
+    <h3><%= breed %></h3>
+    <p><%= description %></p>
     <a id="reserve" style="align-self:center" class="mainlink" href="./varaa">Varaa</a>
   </div>
   <script>

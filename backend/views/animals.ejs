@@ -22,7 +22,7 @@
       <a class="link"></a>
       <img src="/static/resources/images/no_image.png" class="thumbnail" />
       <h3 class="title">Eläin</h3>
-      <div class="line"></div>
+      <div class="hline"></div>
       <p class="description"></p>
       <div class="info">
         <p class="type">Tyyppi</p>
@@ -44,13 +44,13 @@
         const clone = document.importNode(template.content, true);
 
         let link = clone.querySelector(".link");
-        link.href = `kissat/${animal.id}`;
+        link.href = `${endpoint}/${animal.id}`;
         let title = clone.querySelector(".title");
         title.textContent = animal.name;
         let description = clone.querySelector(".description");
         description.textContent = animal.description;
-        let shelterDate = clone.querySelector(".type");
-        shelterDate.textContent = animal.type_name;
+        let type = clone.querySelector(".type");
+        type.textContent = animal.type_name;
         let breed = clone.querySelector(".breed");
         breed.textContent = animal.breed;
 
