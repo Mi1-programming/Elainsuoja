@@ -6,6 +6,7 @@
 <head>
   <title>Kissa</title>
   <link href="/static/resources/main.css" rel="stylesheet" />
+  <link href="/static/resources/animal.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -13,8 +14,12 @@
     <div id="breadcrumbs"><%- breadcrumbs %></div>
     <script src="/static/src/breadcrumbs.js"></script>
 
-    <p>Kissan nimi on <%= name %></p>
-    <a id="reserve" href="./varaa">Varaa</a>
+    <img src="/static/resources/images/animals/<%= name %>.jpg" onerror="this.onerror=null; this.src='/static/resources/images/no_image.png';" class="thumbnail"/>
+    <h2><%= name %></h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur officiis cupiditate illo ab debitis maxime neque voluptatibus, odit nemo eveniet?
+      Molestias consectetur inventore eum enim nesciunt porro rerum repellendus delectus!
+    </p>
+    <a id="reserve" style="align-self:center" class="mainlink" href="./varaa">Varaa</a>
   </div>
   <script>
     const reserve = document.getElementById("reserve");
