@@ -52,7 +52,7 @@ app.get("/koti/:category", breadcrumbMiddleware, async (req, res) => {
 app.get("/koti/:category/:id", breadcrumbMiddleware, async (req, res) => {
 	const id = req.params.id;
 	const animal = await GetAnimalById(id);
-	res.render("animal", { name: animal.name, description: animal.description, breed: animal.breed, breadcrumbs: req.breadcrumbs });
+	res.render("animal", { name: animal.name, breadcrumbs: req.breadcrumbs });
 });
 app.get("/koti/:category/:id/varaa", breadcrumbMiddleware, async (req, res) => {
 	const id = req.params.id;
