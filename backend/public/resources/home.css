@@ -1,0 +1,13 @@
+.banner {
+    position: relative;
+    z-index: 1;
+}
+.banner .hero {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fbe5ea;
+    text-shadow: 2px 2px 4px #451f3c;
+}

@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: nunito, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@font-face {
+    font-family: dynaPuff; /* set name */
+    src: url(./fonts/DynaPuff/DynaPuff-VariableFont_wdth\,wght.ttf); /* url of the font */
+}
+@font-face {
+    font-family: nunito; /* set name */
+    src: url(./fonts/Nunito/Nunito-VariableFont_wght.ttf); /* url of the font */
+}
+
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 1em;
+}
+h1, h2, h3, h4, a {
+    font-family: dynaPuff;
+}
+a {
+    color: #C1434C;
+}
+a:hover {
+    color: #e75ca3
+}
+html {
+    background-color: #ECBDBF;
+    background: url("images/background.png");
+}
+body {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 8px;
+    background-color: #fbe5ea;
+    margin-block: 16px;
+    padding-block: 16px;
+    padding-inline: 24px;
+    max-width: 800px;
+    border-bottom: #e75ca3 4px double;
+}
+td {
+    padding: 4px;
+}
+table {
+    width: fit-content;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 16px;
+    padding-inline: 32px;
+    background-color: #ECBDBF;
+    box-shadow: 0px 0px 32px 16px #ECBDBF;
+}
+.centerText {
+    text-align: center;
+}
+.centerX {
+    width: fit-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.centerY {
+    height: fit-content;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mainlink {
+    display: inline-block;
+    background-color: #ecbdbf;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 16px 0;
+    width: fit-content;
+}
+.line {
+    width: 100%;
+    background-color: #9A4280;
+    opacity: 0.5;
+    height: 2px;
+    border-radius: 100%;
+}
+
+#breadcrumbs {
+    background-color: #ECBDBF;
+    display: flex;
+    gap: 8px;
+    color: #C1434C;
+    width: fit-content;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+#breadcrumbs > * {
+    font-family: dynaPuff;
+}

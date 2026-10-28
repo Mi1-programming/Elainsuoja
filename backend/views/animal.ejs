@@ -1,0 +1,25 @@
+<!-- @format -->
+
+<!doctype html>
+<html>
+
+<head>
+  <title>Kissa</title>
+  <link href="/static/resources/main.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="breadcrumbs"><%- breadcrumbs %></div>
+    <script src="/static/src/breadcrumbs.js"></script>
+
+    <p>Kissan nimi on <%= name %></p>
+    <a id="reserve" href="./varaa">Varaa</a>
+  </div>
+  <script>
+    const reserve = document.getElementById("reserve");
+    reserve.href = window.location.pathname + "/varaa";
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!-- @format -->
+
+<!doctype html>
+<html>
+
+<head>
+  <title>Adoptoitavat Eläimet</title>
+  <link href="/static/resources/main.css" rel="stylesheet" />
+  <link href="/static/resources/animals.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="breadcrumbs"><%- breadcrumbs %></div>
+    <script src="/static/src/breadcrumbs.js"></script>
+    <h1><%- category %></h1>
+    <main id="cards"></main>
+  </div>
+
+  <template id="card">
+    <div class="card">
+      <a class="link"></a>
+      <img src="/static/resources/images/no_image.png" class="thumbnail" />
+      <h3 class="title">Eläin</h3>
+      <div class="line"></div>
+      <p class="description"></p>
+      <div class="info">
+        <p class="type">Tyyppi</p>
+        <p class="breed">Rotu</p>
+      </div>
+    </div>
+  </template>
+  <script>
+    const cards = document.querySelector("#cards");
+    const template = document.querySelector("#card");
+    const endpoint = "<%- endpoint %>";
+
+    async function PopulateAnimals() {
+      const url = `/api/category/get/${endpoint}`;
+      const data = await fetch(url);
+      const animals = await data.json();
+
+      animals.forEach((animal) => {
+        const clone = document.importNode(template.content, true);
+
+        let link = clone.querySelector(".link");
+        link.href = `kissat/${animal.id}`;
+        let title = clone.querySelector(".title");
+        title.textContent = animal.name;
+        let description = clone.querySelector(".description");
+        description.textContent = animal.description;
+        let shelterDate = clone.querySelector(".type");
+        shelterDate.textContent = animal.type_name;
+        let breed = clone.querySelector(".breed");
+        breed.textContent = animal.breed;
+
+        if (animal.image_url != undefined) {
+          let thumbnail = clone.querySelector(".thumbnail");
+          thumbnail.src = `/static/resources/images/animals/${animal.image_url}`;
+        }
+
+        cards.appendChild(clone);
+      });
+
+      if (animals.length != 0) return
+
+      const noCardsText = document.createElement("p")
+      noCardsText.innerText = "Valitettavasti täältä ei löydy mitään :("
+      cards.appendChild(noCardsText)
+    }
+
+    PopulateAnimals();
+  </script>
+</body>
+
+</html>

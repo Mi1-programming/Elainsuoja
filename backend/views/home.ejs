@@ -1,0 +1,44 @@
+<!-- @format -->
+
+<!doctype html>
+<html>
+
+<head>
+  <title>Koti</title>
+  <link href="./static/resources/main.css" rel="stylesheet" />
+  <link href="./static/resources/home.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="banner">
+    <video width="100%" autoplay muted loop>
+      <source src="./static/resources/videos/banner.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero">
+      <h1>Vaasan Eläinsuoja</h1>
+      <h3>Eläinsuoja, joka välittää.</h3>
+    </div>
+  </div>
+  <div class="container centerX">
+    <div class="line"></div>
+    <h2 class="centerText">Tavoitteemme</h2>
+    <p>Tavoitteenamme on löytää jokaiselle hätää kärsineelle eläimelle rakastava ja turvallinen ikuinen koti.<br>Tule tutustumaan uuteen parhaaseen ystävääsi, niin luomme yhdessä uuden alun.</p>
+    <br />
+    <h2 class="centerText">Valikoimamme</h2>
+  </div>
+  <% for(let item of endpoints.values()) { %>
+  <section>
+    <div style="display: flex; gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 32px; justify-content: center">
+        <h3><%= item.name %></h3>
+        <p><%= item.description %></p>
+        <a style="align-self:center" class="mainlink" href="<%= "koti/" + item.endpoint %>">Selaa</a>
+      </div>
+      <img src="<%= "./static/resources/images/categories/" + item.image_url %>" style="height: 256px;" />
+    </div>
+  </section>
+  <% } %>
+</body>
+
+</html>
