@@ -44,7 +44,7 @@
         const clone = document.importNode(template.content, true);
 
         let link = clone.querySelector(".link");
-        link.href = `kissat/${animal.id}`;
+        link.href = `${endpoint}/${animal.id}`;
         let title = clone.querySelector(".title");
         title.textContent = animal.name;
         let description = clone.querySelector(".description");
