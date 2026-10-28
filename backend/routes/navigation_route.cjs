@@ -51,7 +51,7 @@ router.get("/koti/:category/:id", breadcrumbMiddleware, async (req, res) => {
 		name: animal.name,
 		breed: animal.breed,
 		description: animal.description,
-		category,
+		category: category.name,
 		breadcrumbs: req.breadcrumbs,
 	});
 });
