@@ -21,10 +21,9 @@
     </div>
   </div>
   <div class="container centerX">
-    <div class="line"></div>
-    <h2 class="centerText">Tavoitteemme</h2>
-    <p>Tavoitteenamme on löytää jokaiselle hätää kärsineelle eläimelle rakastava ja turvallinen ikuinen koti.<br>Tule tutustumaan uuteen parhaaseen ystävääsi, niin luomme yhdessä uuden alun.</p>
-    <br />
+    <div class="hline"></div>
+    <h2 class="centerText">Tavoite</h2>
+    <p>Tavoitteenamme on löytää jokaiselle hätää kärsineelle eläimelle rakastava ja turvallinen ikuinen koti.<br />Tule tutustumaan uuteen parhaaseen ystävääsi, niin luomme yhdessä uuden alun.</p>
     <h2 class="centerText">Valikoimamme</h2>
   </div>
   <% for(let item of endpoints.values()) { %>
@@ -32,6 +31,7 @@
     <div style="display: flex; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 32px; justify-content: center">
         <h3><%= item.name %></h3>
+        <div class="hline"></div>
         <p><%= item.description %></p>
         <a style="align-self:center" class="mainlink" href="<%= "koti/" + item.endpoint %>">Selaa</a>
       </div>
@@ -39,6 +39,59 @@
     </div>
   </section>
   <% } %>
+  <div class="container centerX">
+    <h2 class="centerText">Rest API</h2>
+  </div>
+  <section>
+    <div style="display: flex; flex-direction: column; gap: 32px;">
+      <p>Uskomme vapaaseen tiedonkulkuun.<br />
+        Siksi annamme ohjelmistokehittäjille käyttöön REST API:n sivuston käyttöä varten ohjelmistotyökaluilla.<br />
+        Eikö käyttöliittymämme kelpaa? Tee oma!
+      </p>
+      <div class="hline"></div>
+      <a style="align-self:center" href="docs">Siirry Dokumentaatioon</a>
+    </div>
+  </section>
+  <footer>
+    <table>
+      <tr>
+        <td>Sähköposti</td>
+        <td>elainsuoja@tuki.fi</td>
+      </tr>
+      <tr>
+        <td>Puhelin</td>
+        <td>040 123 4567</td>
+      </tr>
+      <tr>
+        <td>Y-Tunnus</td>
+        <td>1234567-8</td>
+      </tr>
+    </table>
+    <div class="vline"></div>
+    <table>
+      <tr>
+        <td>
+          <a href="koti">
+            Tietosuoja
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="koti">
+            Ympäristöraportti
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="docs">
+            REST API
+          </a>
+        </td>
+      </tr>
+    </table>
+  </footer>
 </body>
 
 </html>

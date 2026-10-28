@@ -45,6 +45,7 @@ body {
     transform: translateX(-50%);
     width: 100%;
     max-width: 1200px;
+    overflow-x: hidden;
 }
 section {
     display: flex;
@@ -58,11 +59,25 @@ section {
     max-width: 800px;
     border-bottom: #e75ca3 4px double;
 }
+footer {
+    color: #fbe5ea;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 32px;
+    margin-top: 64px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 400px;
+    background-color: #451f3c;
+}
 td {
     padding: 4px;
 }
 table {
     width: fit-content;
+    height: min-content;
 }
 
 .container {
@@ -98,11 +113,18 @@ table {
     border-radius: 16px 0;
     width: fit-content;
 }
-.line {
+.hline {
     width: 100%;
     background-color: #9A4280;
     opacity: 0.5;
     height: 2px;
+    border-radius: 100%;
+}
+.vline {
+    height: 100%;
+    background-color: #9A4280;
+    opacity: 0.5;
+    width: 2px;
     border-radius: 100%;
 }
 
