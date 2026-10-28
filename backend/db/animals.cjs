@@ -2,25 +2,28 @@
 
 const { connection } = require("../db.cjs");
 
-async function GetNameByEndPoint(endpoint) {
+async function GetCategoryNameByTextID(category) {
 	const result = await connection.one(
-		"SELECT name FROM animaltype WHERE endpoint = $1",
-		[endpoint],
+		"SELECT name FROM category WHERE id = $1",
+		[category],
 	);
-	return result;
+	return result.name;
 }
-async function GetEndpoints() {
+async function GetCategories() {
 	const result = await connection.many(
-		"SELECT name, endpoint, description, image_url FROM animaltype WHERE endpoint IS NOT NULL",
+		"SELECT name, id, description, image_url FROM category",
 	);
 	return result;
 }
-async function GetAnimalsAtEndpoint(endpoint) {
+async function GetAnimalsByCategory(category) {
 	const result = await connection.manyOrNone(
-		`SELECT animal.id, animal.name, animal.description, animal.type_id, animal.breed, animal.shelter_date, animal.image_url, animaltype.name AS type_name FROM
-        animal INNER JOIN animaltype ON animal.type_id = animaltype.id WHERE animaltype.endpoint = $1`,
-		[endpoint],
+		`SELECT * FROM animal WHERE animal.category_text_id = $1`,
+		[category],
 	);
+	return result;
+}
+async function GetAnimals() {
+	const result = await connection.manyOrNone("SELECT * FROM animal");
 	return result;
 }
 async function GetAnimalById(id) {
@@ -31,8 +34,9 @@ async function GetAnimalById(id) {
 }
 
 module.exports = {
-	GetNameByEndPoint,
-	GetEndpoints,
-	GetAnimalsAtEndpoint,
+	GetCategoryNameByTextID,
+	GetCategories,
+	GetAnimalsByCategory,
+	GetAnimals,
 	GetAnimalById,
 };

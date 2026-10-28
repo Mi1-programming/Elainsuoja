@@ -1,0 +1,125 @@
+# @format
+
+openapi: 3.0.4
+
+info:
+  title: Vaasan Eläinsuoja REST API
+  version: 1.0.0
+  description: Uskomme vapaaseen tiedonkulkuun. Siksi annamme ohjelmistokehittäjille käyttöön REST API:n sivuston käyttöä varten ohjelmistotyökaluilla.
+
+servers:
+  - url: http://localhost:3000
+    description: Kehityspalvelin
+
+paths:
+  /api/animals:
+    get:
+      summary: Hae kaikki eläimet
+      description: Hakee tietokannasta kaikki eläimet.
+      tags:
+        - Animals
+      responses:
+        "200":
+          description: Lista eläimistä
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Animal"
+        "500":
+          description: Palvelinvirhe
+
+  /api/animals/{id}:
+    get:
+      summary: Hae yksi eläin
+      description: Palauttaa yhden eläimen tiedot ID:n perusteella
+      tags:
+        - Animals
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Eläimen ID
+          schema:
+            type: integer
+          example: 1
+      responses:
+        "200":
+          description: Eläimen tiedot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Animal"
+        "404":
+          description: Eläintä ei löytynyt
+        "500":
+          description: Palvelinvirhe
+
+  /api/category/animals/{category}:
+    get:
+      summary: Hae kaikki eläimet kategorian mukaan
+      description: Hakee tietokannasta kaikki eläimet kategoriassa.
+      tags:
+        - Category
+      parameters:
+        - name: category
+          in: path
+          required: true
+          description: Kategorian ID
+          schema:
+            type: string
+          example: kissat
+      responses:
+        "200":
+          description: Lista eläimistä kategoriassa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Animal"
+        "500":
+          description: Palvelinvirhe
+
+components:
+  schemas:
+    Animal:
+      type: object
+      required:
+        - id
+        - name
+        - description
+        - type_id
+        - breed
+        - shelter_date
+        - image_url
+      properties:
+        id:
+          type: integer
+          description: Yksilöllinen tunniste
+          example: 1
+        name:
+          type: string
+          description: Eläimen nimi.
+          example: Killi
+        description:
+          type: string
+          description: Lisätietoja eläimestä.
+          example: Kissa on leikkisä
+        type_id:
+          type: integer
+          description: Eläimen kategoria tyyppi.
+          example: 1
+        breed:
+          type: string
+          description: Eläimen rotu.
+          example: Sekarotu
+        shelter_date:
+          type: string
+          description: Päivä, jolloin eläin otettiin suojaan.
+          example: "2011-07-04T21:00:00.000Z"
+        image_url:
+          type: string
+          description: Polku kuvaan eläimestä.
+          example: "kissa.jpg"

@@ -26,14 +26,14 @@
     <p>Tavoitteenamme on löytää jokaiselle hätää kärsineelle eläimelle rakastava ja turvallinen ikuinen koti.<br />Tule tutustumaan uuteen parhaaseen ystävääsi, niin luomme yhdessä uuden alun.</p>
     <h2 class="centerText">Valikoimamme</h2>
   </div>
-  <% for(let item of endpoints.values()) { %>
+  <% for(let item of categories.values()) { %>
   <section>
     <div style="display: flex; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 32px; justify-content: center">
-        <h3><%= item.name %></h3>
+        <h3><%- item.name %></h3>
         <div class="hline"></div>
-        <p><%= item.description %></p>
-        <a style="align-self:center" class="mainlink" href="<%= "koti/" + item.endpoint %>">Selaa</a>
+        <p><%- item.description %></p>
+        <a style="align-self:center" class="mainlink" href="<%= "koti/" + item.id %>">Selaa</a>
       </div>
       <img src="<%= "./static/resources/images/categories/" + item.image_url %>" style="height: 256px;" />
     </div>
@@ -49,7 +49,7 @@
         Eikö käyttöliittymämme kelpaa? Tee oma!
       </p>
       <div class="hline"></div>
-      <a style="align-self:center" href="docs">Siirry Dokumentaatioon</a>
+      <a style="align-self:center" href="api-docs">Siirry Dokumentaatioon</a>
     </div>
   </section>
   <footer>
@@ -85,7 +85,7 @@
       </tr>
       <tr>
         <td>
-          <a href="docs">
+          <a href="api-docs">
             REST API
           </a>
         </td>

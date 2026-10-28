@@ -12,6 +12,7 @@ app.set("view engine", "ejs");
 app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(require("./routes/api_route.cjs"));
 app.use(require("./routes/navigation_route.cjs"));
+app.use(require("./routes/swagger_route.cjs"));
 
 const port = process.env.PORT;
 app.listen(port, () => {

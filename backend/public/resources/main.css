@@ -70,7 +70,7 @@ footer {
     transform: translateX(-50%);
     width: 100vw;
     height: 400px;
-    background-color: #451f3c;
+    background: linear-gradient(#451f3c 25%, #9A4280 150%);
 }
 td {
     padding: 4px;
