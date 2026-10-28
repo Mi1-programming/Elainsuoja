@@ -63,8 +63,9 @@ router.get(
 		const animal = await GetAnimalById(id);
 
 		res.render("reserve_form", {
-			name: animal.name,
-			breadcrumbs: req.breadcrumbs,
+    name: animal.name,
+    animalId: animal.id,
+    breadcrumbs: req.breadcrumbs,
 		});
 	},
 );
