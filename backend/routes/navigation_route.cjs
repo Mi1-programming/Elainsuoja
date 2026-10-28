@@ -16,7 +16,7 @@ const breadcrumbMiddleware = MakeBreadcrumbMiddleware({
 			const animal = await GetAnimalById(id);
 			breadcrumb.name = animal.name;
 		},
-		":animals": async (breadcrumb, req) => {
+		":category": async (breadcrumb, req) => {
 			const category = req.params.category;
 			const result = await GetNameByEndPoint(category);
 			breadcrumb.name = result.name;
@@ -43,7 +43,17 @@ router.get("/koti/:category", breadcrumbMiddleware, async (req, res) => {
 router.get("/koti/:category/:id", breadcrumbMiddleware, async (req, res) => {
 	const id = req.params.id;
 	const animal = await GetAnimalById(id);
-	res.render("animal", { name: animal.name, breadcrumbs: req.breadcrumbs });
+
+	const endpoint = req.params.category;
+	const category = await GetNameByEndPoint(endpoint);
+
+	res.render("animal", {
+		name: animal.name,
+		breed: animal.breed,
+		description: animal.description,
+		category,
+		breadcrumbs: req.breadcrumbs,
+	});
 });
 router.get(
 	"/koti/:category/:id/varaa",
