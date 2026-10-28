@@ -24,9 +24,12 @@ INSERT INTO animaltype (name, endpoint, description, image_url) VALUES
 ('Muut', 'muut', 'Haluatko kokeilla jotakin uutta? Suojassamme on myös muitakin eläimiä, jotka kaikki odottavat kotia. Löydät meiltä myös esimerkiksi kaneja, marsuja ja hamstereita.', 'other.png');
 
 INSERT INTO animal (name, description, type_id, breed, shelter_date, image_url) VALUES 
-('Killi', 'Kiva ja hellyyden haluinen kissa, mutta näykkii kuin piraija.', 1, 'Sekarotu', '2011-07-05', NULL),
-('Luna', 'Rauhallinen ja lempeä kissa, joka rakastaa nukkua auringonpaisteessa.', 1, 'Maine Coon', '2018-03-12', 'cat.jpg'),
-('Musti', 'Energinen musta kissa, joka jahtaa varjoja ympäri asuntoa yöaikaan.', 1, 'Sekarotu', '2020-11-20', NULL),
+('Killi', 'Kiva ja hellyyden haluinen kissa, mutta näykkii kuin piraija.', 1, 'Sekarotu', '2011-07-05', 'killi.jpg'),
+('Luna', '"How dare thou speak of me" - asenne', 1, 'Maine Coon', '2018-03-12', 'luna.jpg'),
+('Julien', 'Energinen kissa, joka tykkää tanssia.', 1, 'Sekarotu', '2010-01-28', 'julien.jpg'),
 ('Simba', 'Ylpeä ja äänekäs kaveri, joka luulee olevansa oikea leijona.', 1, 'Abessinialainen', '2015-01-05', NULL),
-('Misu', 'Hieman ujo aluksi, mutta sulaa herkkujen myötä erittäin nopeasti.', 1, 'Siamilainen', '2022-08-15', NULL),
+('Misu', 'Hieman ujo aluksi, mutta sulaa herkkujen myötä erittäin nopeasti.', 1, 'Siamilainen', '2022-08-15', 'misu.jpg'),
 ('Nöpö', 'Utelias pieni kissa, joka tykkää tutkia kaappien sisällöstä.', 1, 'Britannian lyhytkarvainen', '2019-10-02', NULL);
+('Bertha', 'Lempeä koira jonka kanssa sinulla tulee varmasti olemaan kultaisia hetkiä.', 2, 'Kultainennoutaja', '2021-02-25', 'bertha.jpg');
+('Gambit', 'Koira joka aina löytää odottamattomia tapoja herättää tunteitasi.', 2, 'Jack Russell', '2020-01-12', 'gambit.jpg');
+('Scrummy', 'Gaselli joka tykkää organisoiduista projekteista', 3, 'Gaselli', '2026-07-12', 'scrummy.jpg');
