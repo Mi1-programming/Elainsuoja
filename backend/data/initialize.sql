@@ -29,7 +29,7 @@ INSERT INTO animal (name, description, type_id, breed, shelter_date, image_url) 
 ('Julien', 'Energinen kissa, joka tykkää tanssia.', 1, 'Sekarotu', '2010-01-28', 'julien.jpg'),
 ('Simba', 'Ylpeä ja äänekäs kaveri, joka luulee olevansa oikea leijona.', 1, 'Abessinialainen', '2015-01-05', NULL),
 ('Misu', 'Hieman ujo aluksi, mutta sulaa herkkujen myötä erittäin nopeasti.', 1, 'Siamilainen', '2022-08-15', 'misu.jpg'),
-('Nöpö', 'Utelias pieni kissa, joka tykkää tutkia kaappien sisällöstä.', 1, 'Britannian lyhytkarvainen', '2019-10-02', NULL);
-('Bertha', 'Lempeä koira jonka kanssa sinulla tulee varmasti olemaan kultaisia hetkiä.', 2, 'Kultainennoutaja', '2021-02-25', 'bertha.jpg');
-('Gambit', 'Koira joka aina löytää odottamattomia tapoja herättää tunteitasi.', 2, 'Jack Russell', '2020-01-12', 'gambit.jpg');
+('Nöpö', 'Utelias pieni kissa, joka tykkää tutkia kaappien sisällöstä.', 1, 'Britannian lyhytkarvainen', '2019-10-02', NULL),
+('Bertha', 'Lempeä koira jonka kanssa sinulla tulee varmasti olemaan kultaisia hetkiä.', 2, 'Kultainennoutaja', '2021-02-25', 'bertha.jpg'),
+('Gambit', 'Koira joka aina löytää odottamattomia tapoja herättää tunteitasi.', 2, 'Jack Russell', '2020-01-12', 'gambit.jpg'),
 ('Scrummy', 'Gaselli joka tykkää organisoiduista projekteista', 3, 'Gaselli', '2026-07-12', 'scrummy.jpg');
