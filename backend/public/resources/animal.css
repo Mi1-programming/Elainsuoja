@@ -17,6 +17,7 @@
 
 .container h2 {
   margin-top: 0;
+  color: #451f3c;
 }
 
 @media (max-width: 600px) {
