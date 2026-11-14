@@ -4,7 +4,7 @@ const {
 	GetAnimalById,
 	GetAnimalsByCategory,
 	GetAnimals,
-} = require("../db/animals.cjs");
+} = require("#src/db/animals.cjs");
 const express = require("express");
 const router = express.Router();
 
@@ -52,7 +52,7 @@ router.get("/api/animals/:id", async (req, res) => {
 	}
 });
 
-router.post("/animals/:id/adopt", async (req, res) => {
+router.post("/api/animals/:id/adopt", async (req, res) => {
 	const animalId = Number(req.params.id);
 
 	if (!Number.isInteger(animalId) || animalId < 1) {

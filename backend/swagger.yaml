@@ -81,7 +81,90 @@ paths:
                   $ref: "#/components/schemas/Animal"
         "500":
           description: Palvelinvirhe
-
+  /api/animals/{id}/adopt:
+    post:
+      summary: Lähetä adoptiohakemus eläin ID:n mukaan
+      description: Lähettää adoptiopalvelimelle pyynnön
+      tags:
+        - Animals
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Eläimen ID
+          schema:
+            type: integer
+          example: 1
+      requestBody:
+        description: Data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                applicant_name:
+                  type: string
+                  description: Asiakkaan koko nimi
+                  example: Matti Meikäläinen
+                email:
+                  type: string
+                  description: Asiakkaan sähköposti
+                  example: matti.meikalainen@mail.com
+                phone:
+                  type: string
+                  description: Asiakkaan puhelinnumero
+                  example: "0401234567"
+                message:
+                  type: string
+                  description: Lisätieto
+                  example: "Haluan adoptoida eläimen"
+      responses:
+        "201":
+          description: Varausvarmistus
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Varmistus, että varaus onnistui
+                    example: true
+                  message:
+                    type: string
+                    description: Varmistusviesti
+                    example: Adoptiohakemus tallennettiin onnistuneesti.
+                  adoptionId:
+                    type: integer
+                    description: Adoption yksilöllinen ID
+                    example: 1
+                  animalId:
+                    type: integer
+                    description: Eläimen yksilöllinen ID.
+                    example: 1
+                  animalName:
+                    type: string
+                    description: Eläimen nimi
+                    example: Killi
+                  status:
+                    type: string
+                    description: Eläimen tila
+                    example: Varattu
+                  createdAt:
+                    type: string
+                    description: Milloin varaus tehtiin
+                    example: "2011-07-04T21:00:00.000Z"
+        "400":
+          description: Nimi, sähköposti, eläimen tunniste tai puhelinnumero puuttuvat tai ovat virheellisiä
+        "404":
+          description: Eläin puuttuu
+        "409":
+          description: Eläin ei ole enää adoptoitavissa
+        "500":
+          description: Palvelinvirhe
+        "502":
+          description: Adoptiopalvelimeen ei saatu yhteyttä
 components:
   schemas:
     Animal:
@@ -123,3 +206,7 @@ components:
           type: string
           description: Polku kuvaan eläimestä.
           example: "kissa.jpg"
+        reserved:
+          type: string
+          description: reserved or available
+          example: "reserved"

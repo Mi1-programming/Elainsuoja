@@ -47,9 +47,7 @@ router.get("/koti/:category/:id", breadcrumbMiddleware, async (req, res) => {
 	const categoryName = await GetCategoryNameByTextID(category);
 
 	res.render("animal", {
-		name: animal.name,
-		breed: animal.breed,
-		description: animal.description,
+		animal: animal,
 		category,
 		categoryName,
 		breadcrumbs: req.breadcrumbs,
@@ -63,9 +61,8 @@ router.get(
 		const animal = await GetAnimalById(id);
 
 		res.render("reserve_form", {
-    name: animal.name,
-    animalId: animal.id,
-    breadcrumbs: req.breadcrumbs,
+			animal: animal,
+			breadcrumbs: req.breadcrumbs,
 		});
 	},
 );

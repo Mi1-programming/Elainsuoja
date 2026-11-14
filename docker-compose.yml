@@ -2,15 +2,16 @@
 services:
   db:
     image: postgres:16-alpine
+    restart: always
     environment:
       POSTGRES_USER: elainsuoja_user
-      POSTGRES_PASSWORD: local_dev_password
+      POSTGRES_PASSWORD: vPRCGj3GY9oR4QNQ
       POSTGRES_DB: elainsuoja
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./backend/data/initialize.sql:/docker-entrypoint-initdb.d/01-initialize.sql:ro
+      - ./postgresql/initialize.sql:/docker-entrypoint-initdb.d/01-initialize.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U elainsuoja_user -d elainsuoja"]
       interval: 5s
@@ -18,13 +19,16 @@ services:
       retries: 10
 
   adoption-server:
+    restart: always
     build:
       context: ./backend/adoption-server
       dockerfile: Dockerfile
     environment:
-      PORT: "3001"
-      PG_CONNECTION_STRING: "postgresql://elainsuoja_user:local_dev_password@db:5432/elainsuoja"
-      PGSSL: "false"
+      PORT: 3001
+      PGHOST: db
+      PGUSER: elainsuoja_user
+      PGPASSWORD: vPRCGj3GY9oR4QNQ
+      PGDATABASE: elainsuoja
     ports:
       - "3001:3001"
     depends_on:
@@ -32,13 +36,16 @@ services:
         condition: service_healthy
 
   server-a:
+    restart: always
     build:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      PORT: "3000"
-      PG_CONNECTION_STRING: "postgresql://elainsuoja_user:local_dev_password@db:5432/elainsuoja"
-      PGSSL: "false"
+      PORT: 3000
+      PGHOST: db
+      PGUSER: elainsuoja_user
+      PGPASSWORD: vPRCGj3GY9oR4QNQ
+      PGDATABASE: elainsuoja
       ADOPTION_SERVER_URL: "http://adoption-server:3001"
     ports:
       - "3000:3000"

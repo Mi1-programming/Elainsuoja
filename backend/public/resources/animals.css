@@ -63,3 +63,15 @@
     font-size: small;
     height: min-content;
 }
+.imageHolder {
+    position: relative;
+}
+.reserved {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #FBE5EA;
+    background-color: #451f3c;
+    padding-inline: 16px;
+}

@@ -22,8 +22,13 @@
       <% for(let animal of animals) { %>
       <div class="card">
         <a class="link" href="<%- category %>/<%- animal.id %>"></a>
-        <img src="/static/resources/images/animals/<%= animal.image_url %>" class="thumbnail" />
-        <h3 class="title"><%- animal.name %></h3>
+        <div class="imageHolder">
+          <img src="/static/resources/images/animals/<%- animal.image_url %>" class="thumbnail" />
+          <% if (animal.status == "reserved") { %>
+          <h2 class="reserved">VARATTU</h2>
+          <% } %>
+        </div>
+        <h3 class="title"><%- animal.name %> - <%- animal.age %>v</h3>
         <div class="hline"></div>
         <p class="description"><%- animal.description %></p>
         <div class="info">
