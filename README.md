@@ -1,6 +1,6 @@
-Asennusohjeet
+Asennusohjeet:
 
-1. Avaa PowerShell ja suorita:
+*Avaa PowerShell ja suorita:
 
 git clone https://github.com/Mi1-programming/Elainsuoja.git
 
@@ -8,11 +8,11 @@ Siirry projektikansioon:
 
 cd REPOSITORY
 
-2. Käynnistä projekti Dockerilla
+*Käynnistä projekti Dockerilla
 
 docker compose up --build -d
 
-3. Avaa projekti selaimessa
+*Avaa projekti selaimessa
 
 Tarkista projektin portti:
 
