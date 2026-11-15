@@ -1,5 +1,3 @@
-Asennusohjeet:
-
 *Avaa PowerShell ja suorita:
 
 git clone https://github.com/Mi1-programming/Elainsuoja.git
